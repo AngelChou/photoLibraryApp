@@ -27,9 +27,16 @@ class ViewController: UIViewController {
     }
     func changeImage() {
         if typeSegmentedControl.selectedSegmentIndex == 0 {
+            if petIndex == dogs.count {
+                petIndex = 0
+            }
             petImageView.image = UIImage(named: dogs[petIndex])
             nameLabel.text = dogs[petIndex]
         } else {
+            if petIndex == cats.count {
+                petIndex = 0
+            }
+
             petImageView.image = UIImage(named: cats[petIndex])
             nameLabel.text = cats[petIndex]
         }
@@ -41,9 +48,6 @@ class ViewController: UIViewController {
     }
     @IBAction func NextBtnClicked(_ sender: Any) {
         petIndex += 1
-        if petIndex == 3 {
-            petIndex = 0
-        }
         changeImage()
     }
 }
